@@ -8,5 +8,33 @@ logging:
     org.springframework: debug
 
 spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
   messages:
     basename: messages
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  security:
+    user:
+      name: username
+      password: passw0rd
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
